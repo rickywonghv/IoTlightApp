@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>IoT Light</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <button ion-button block (click)="onLight()">On</button>
+  <button ion-button block (click)="offLight()">Off</button>
+  <button ion-button color="danger" (click)="redLight()">Red Light</button>
+  <button ion-button color="light" (click)="whiteLight()">White Light</button>
+  <button ion-button color="secondary" (click)="dimupLight()">Dim Up</button>
+  <button ion-button color="dark" (click)="dimdownLight()">Dim Down</button>
+
+  <button ion-button color="secondary" (click)="screenOn()">Screen On</button>
+  <button ion-button color="dark" (click)="screenOff()">Screen Off</button>
+</ion-content>
