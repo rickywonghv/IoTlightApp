@@ -5,6 +5,15 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-list>
+    <ion-item style="float:left">
+      <ion-label color="primary">End point:</ion-label>
+      <ion-input placeholder="Please enter url or end point" [(ngModel)]="endpoint"></ion-input>
+    </ion-item>
+    <button ion-button block color="light" (click)="save()">Save</button>
+  </ion-list>
+
+
   <button ion-button block (click)="onLight()">On</button>
   <button ion-button block (click)="offLight()">Off</button>
   <button ion-button color="danger" (click)="redLight()">Red Light</button>

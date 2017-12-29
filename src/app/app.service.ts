@@ -7,9 +7,9 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class AppService {
-  private baseUrl="http://192.168.11.104";
-  private on="ON1";
-  private off="OFF1";
+  private baseUrl=""; //light=ON
+  private on="ON";
+  private off="OFF";
   private redlight="red";
   private whitelight="white";
   private dimupup="dimup";
@@ -21,12 +21,28 @@ export class AppService {
 
   }
 
+  public save(url){
+    if(url.includes("http://")){
+      this.baseUrl=url;
+      localStorage.setItem("url",url);
+    }else{
+      this.baseUrl="http://"+url;
+      localStorage.setItem("url","http://"+url);
+    }
+  }
+
+  public getUrl(){
+    let url=localStorage.getItem("url");
+    this.baseUrl=url;
+    return url;
+  }
+
   public onLight (){
-    return this.http.get(this.baseUrl+"/?pin="+this.on);
+    return this.http.get(this.baseUrl+"/?light="+this.on);
   }
 
   public offLight (){
-    return this.http.get(this.baseUrl+"/?pin="+this.off);
+    return this.http.get(this.baseUrl+"/?light="+this.off);
   }
 
   public redLight (){

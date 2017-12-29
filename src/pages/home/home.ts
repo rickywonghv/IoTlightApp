@@ -7,11 +7,17 @@ import {AppService} from "../../app/app.service";
   templateUrl: 'home.html'
 })
 export class HomePage {
-
+  private url;
+  private endpoint;
   constructor(public navCtrl: NavController,private service:AppService) {
-
+    this.endpoint=this.getUrl();
   }
-
+  public save(){
+    this.service.save(this.endpoint);
+  }
+  public getUrl(){
+    return this.service.getUrl();
+  }
   public onLight(){
     this.service.onLight().subscribe();
   }
